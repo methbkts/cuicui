@@ -1,0 +1,18 @@
+databases:
+  - name: cuicui
+    databaseName: cuicui
+    user: cuicui
+
+services:
+  - type: web
+    name: cuicui
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cuicui
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

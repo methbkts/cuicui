@@ -24,7 +24,4 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: cuicui_production
-  username: cuicui
   url: <%= ENV['DATABASE_URL'] %>
-  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
